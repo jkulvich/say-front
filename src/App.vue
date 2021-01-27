@@ -1,12 +1,28 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <v-btn>{{ $t("message") }}</v-btn>
+      <!--      <CountryFlag country="uk"/>-->
+      <LangSelector/>
     </div>
-    <router-view />
-  </div>
+    <router-view/>
+  </v-app>
 </template>
+
+<script lang="ts">
+import {Component, Vue} from "vue-property-decorator"
+// import CountryFlag from "@/components/atoms/CountryFlag/CountryFlag.vue"
+import LangSelector from "@/components/molecules/LangSelector/LangSelector.vue";
+
+@Component({
+  components: {
+    // CountryFlag,
+    LangSelector,
+  },
+})
+export default class App extends Vue {
+}
+</script>
 
 <style lang="scss">
 #app {
