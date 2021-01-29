@@ -1,27 +1,36 @@
 <template>
-  <v-app id="app">
-    <div id="nav">
-      <v-btn>{{ $t("message") }}</v-btn>
-      <!--      <CountryFlag country="uk"/>-->
-      <LangSelector/>
-    </div>
-    <router-view/>
+  <v-app>
+    <v-app-bar color="primary" dark app>
+      <v-toolbar-title class="mr-2">SAY</v-toolbar-title>
+      <WidgetConnectionQualityIndicator url="https://say.over.red" />
+      <v-spacer />
+      <WidgetThemeSwitcher />
+      <WidgetLangSelector :compact="$vuetify.breakpoint.smAndDown" />
+    </v-app-bar>
+    <v-main>
+      <v-container fluid>
+        <router-view />
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator"
-// import CountryFlag from "@/components/atoms/CountryFlag/CountryFlag.vue"
-import LangSelector from "@/components/molecules/LangSelector/LangSelector.vue";
+import { Component, Vue } from "vue-property-decorator";
+import WidgetLangSelector from "@/components/widgets/LangSelector/index.vue";
+import WidgetConnectionQualityIndicator from "@/components/widgets/ConnectionQualityIndicator/index.vue";
+import WidgetServiceCheck from "@/components/widgets/ServiceChecker/index.vue";
+import WidgetThemeSwitcher from "@/components/widgets/ThemeSwitcher/index.vue";
 
 @Component({
   components: {
-    // CountryFlag,
-    LangSelector,
-  },
+    WidgetLangSelector,
+    WidgetConnectionQualityIndicator,
+    WidgetServiceCheck,
+    WidgetThemeSwitcher
+  }
 })
-export default class App extends Vue {
-}
+export default class App extends Vue {}
 </script>
 
 <style lang="scss">
