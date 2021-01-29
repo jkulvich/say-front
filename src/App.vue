@@ -19,14 +19,12 @@
 import { Component, Vue } from "vue-property-decorator";
 import WidgetLangSelector from "@/components/widgets/LangSelector/index.vue";
 import WidgetConnectionQualityIndicator from "@/components/widgets/ConnectionQualityIndicator/index.vue";
-import WidgetServiceCheck from "@/components/widgets/ServiceChecker/index.vue";
 import WidgetThemeSwitcher from "@/components/widgets/ThemeSwitcher/index.vue";
 
 @Component({
   components: {
     WidgetLangSelector,
     WidgetConnectionQualityIndicator,
-    WidgetServiceCheck,
     WidgetThemeSwitcher
   }
 })
