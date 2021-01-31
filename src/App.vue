@@ -1,12 +1,10 @@
 <template>
   <v-app>
-    <v-app-bar color="primary" dark app>
-      <v-toolbar-title class="mr-2">SAY</v-toolbar-title>
-      <WidgetConnectionQualityIndicator url="https://say.over.red" />
-      <v-spacer />
-      <WidgetThemeSwitcher />
-      <WidgetLangSelector :compact="$vuetify.breakpoint.smAndDown" />
-    </v-app-bar>
+    <!-- App's Controls -->
+    <AppBar />
+    <SideBar />
+
+    <!-- App Content -->
     <v-main>
       <v-container fluid>
         <router-view />
@@ -17,21 +15,31 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import WidgetLangSelector from "@/components/widgets/LangSelector/index.vue";
-import WidgetConnectionQualityIndicator from "@/components/widgets/ConnectionQualityIndicator/index.vue";
-import WidgetThemeSwitcher from "@/components/widgets/ThemeSwitcher/index.vue";
+
+// Components
+import SideBar from "@/components/parts/SideBar/SideBar.vue";
+import AppBar from "@/components/parts/AppBar/AppBar.vue";
+
+// Store
+import { getModule } from "vuex-module-decorators";
+import ModuleApp from "@/store/ModuleApp";
 
 @Component({
   components: {
-    WidgetLangSelector,
-    WidgetConnectionQualityIndicator,
-    WidgetThemeSwitcher
+    AppBar,
+    SideBar
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  storeApp = getModule(ModuleApp, this.$store);
+}
 </script>
 
 <style lang="scss">
+html {
+  overflow: hidden;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

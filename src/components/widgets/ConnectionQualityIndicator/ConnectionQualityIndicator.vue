@@ -39,7 +39,7 @@ Checks ping to any site and renders
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import Axios from "axios";
-import WidgetServiceChecker from "@/components/widgets/ServiceChecker/index.vue";
+import WidgetServiceChecker from "@/components/widgets/ServiceChecker/ServiceChecker.vue";
 
 /**
  * Connection profile.

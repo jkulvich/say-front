@@ -5,7 +5,7 @@ Behavior same as a v-button
 -->
 
 <template>
-  <v-menu offset-y>
+  <v-menu offset-y z-index="100">
     <template #activator="{ on: menu }">
       <v-tooltip bottom>
         <template v-slot:activator="{ on: tooltip }">
