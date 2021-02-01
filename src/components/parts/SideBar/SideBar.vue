@@ -155,44 +155,44 @@
 
     <!-- Menu List -->
     <v-list class="text-left">
-      <!-- Active Chats -->
-      <v-list-group
-        :value="false"
-        prepend-icon="mdi-account-multiple"
-        color="accent"
-      >
-        <template v-slot:activator>
-          <v-list-item-content>
-            <v-list-item-title>Chats</v-list-item-title>
-            <v-list-item-subtitle>Your active chats</v-list-item-subtitle>
-          </v-list-item-content>
-        </template>
-        <v-list-item v-for="i in 20" :key="i">
-          <v-list-item-content>
-            <v-list-item-title>Test</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-group>
-      <v-divider class="my-2" />
-      <!-- Security -->
-      <v-list-group :value="false" prepend-icon="mdi-security" color="accent">
-        <template v-slot:activator>
-          <v-list-item-content>
-            <v-list-item-title>Security</v-list-item-title>
-            <v-list-item-subtitle>
-              App security & data sharing
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </template>
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title>Pass Lock</v-list-item-title>
-            <v-list-item-subtitle>
-              After activation new widget available
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-group>
+      <!-- Feedback -->
+      <v-list-item link>
+        <v-list-item-icon>
+          <v-icon>mdi-message-alert</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>Feedback</v-list-item-title>
+          <v-list-item-subtitle>
+            Bugs, Reports & Suggestions
+          </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+      <!-- Support Me -->
+      <v-list-item link>
+        <v-list-item-icon>
+          <v-icon>mdi-handshake</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>Support Me</v-list-item-title>
+          <v-list-item-subtitle>
+            Share, Fork or Donate
+          </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+      <!-- About -->
+      <v-list-item link>
+        <v-list-item-icon>
+          <v-icon>mdi-information</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>
+            About
+          </v-list-item-title>
+          <v-list-item-subtitle>
+            Motivation & Tech info
+          </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
