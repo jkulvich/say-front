@@ -1,0 +1,3 @@
+/**
+ * Provides encrypted storages
+ */

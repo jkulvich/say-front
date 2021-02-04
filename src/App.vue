@@ -23,6 +23,11 @@ import AppBar from "@/components/parts/AppBar/AppBar.vue";
 // Store
 import { getModule } from "vuex-module-decorators";
 import ModuleApp from "@/store/ModuleApp";
+import ModuleContainers from "@/store/modules/ModuleContainers";
+
+import DataLocker, {
+  DataLockerIncorrectKeyError
+} from "@/libs/safestorage/datalocker";
 
 @Component({
   components: {
@@ -31,33 +36,21 @@ import ModuleApp from "@/store/ModuleApp";
   }
 })
 export default class App extends Vue {
-  storeApp = getModule(ModuleApp, this.$store);
+  modContainers = getModule(ModuleContainers, this.$store);
+
+  mounted() {
+    const container = DataLocker.encrypt(new Uint8Array([1, 2, 3]), "test");
+    try {
+      const data = DataLocker.decrypt(container, "test");
+      console.log(data);
+    } catch (e) {
+      if (e instanceof DataLockerIncorrectKeyError)
+        console.log("incorrect key");
+      else throw e;
+    }
+    // this.modContainers.test();
+  }
 }
 </script>
 
-<style lang="scss">
-html {
-  overflow: hidden;
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+<style lang="scss"></style>

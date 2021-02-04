@@ -3,7 +3,7 @@
  */
 import Axios, { AxiosInstance, AxiosResponse, CancelTokenSource } from "axios";
 import Act from "./act";
-import { ChatResp } from "@/api/chat/chat.types";
+import { ChatResp } from "@/libs/api/chat/chat.types";
 
 export default class Chat {
   axios!: AxiosInstance;

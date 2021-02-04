@@ -51,7 +51,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Chat from "@/api/chat";
+import Chat from "@/libs/api/chat";
 import Axios from "axios";
 
 /**

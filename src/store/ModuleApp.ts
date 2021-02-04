@@ -1,3 +1,7 @@
+/*
+Module to control main app's components
+ */
+
 import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
 
 @Module({
