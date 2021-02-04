@@ -144,6 +144,11 @@ export default class DataLocker {
     return encryptedContainer;
   }
 
+  /**
+   * Decrypts data from encrypted container
+   * @param encryptedContainer - Encrypted data
+   * @param key - String which will be used as a password
+   */
   static decrypt(encryptedContainer: Uint8Array, key: string) {
     const blockSize = 512 / 8;
     if (encryptedContainer.length < blockSize * 2)
