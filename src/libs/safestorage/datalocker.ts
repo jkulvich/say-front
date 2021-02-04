@@ -19,11 +19,7 @@ export class DataLockerIncorrectKeyError extends DataLockerError {}
 /**
  * Provides methods to encrypt and decrypt data by hash protected xor.
  *
- * Stores it as a sha512 data hash of decrypted data the sha512 512-aligned
- * blocks with xored data from sha512 key with 2 bytes contains
- * "trash bytes" count info at the first block
- *
- * Formal: sha512(data) + sha512(2 bytes + data-block) [+ sha512(data-block)...]
+ * Formal: sha512(data) + sha512({2 bytes: size of trash bytes} + data-block[2:]) [+ sha512(data-block)...]
  *
  * Bytes at the end of decrypted data is "trash bytes" with random values to
  * prevent "Enigma attack"
